@@ -1,0 +1,28 @@
+{
+  "name": "css-transform-matrix",
+  "version": "0.0.1",
+  "description": "css matrix helper",
+  "main": "index.js",
+  "scripts": {
+    "watch": "rollup -c config/rollup.config.js --bundleConfigAsCjs -w --environment PRO:prod",
+    "build": "rollup -c config/rollup.config.js --bundleConfigAsCjs --environment PRO:prod"
+  },
+  "type": "module",
+  "keywords": ["css", "matrix", "transform", "translate", "rotate", "scale"],
+  "author": "qinyunguo",
+  "license": "ISC",
+  "devDependencies": {
+    "@babel/core": "^7.23.7",
+    "@babel/preset-env": "^7.23.8",
+    "@babel/preset-typescript": "^7.23.3",
+    "@rollup/plugin-babel": "^6.0.4",
+    "@rollup/plugin-commonjs": "^25.0.7",
+    "@rollup/plugin-node-resolve": "^15.2.3",
+    "@types/node": "^20.11.5",
+    "rollup": "^4.9.6",
+    "rollup-plugin-babel": "^4.4.0",
+    "rollup-plugin-livereload": "^2.0.5",
+    "rollup-plugin-serve": "^1.1.1",
+    "typescript": "^5.3.3"
+  }
+}
