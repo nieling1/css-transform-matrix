@@ -3,18 +3,63 @@
 <head>
     <meta charset="UTF-8">
     <title>CssMatrix</title>
-<!--    <script type="module" src="./dist/index.js"></script>-->
+    <style>
+        * {
+            box-sizing: border-box;
+        }
+        body {
+            margin: 0;
+            overflow: hidden;
+        }
+        .wrapper {
+            display: flex;
+            width: 100vw;
+            height: 100vh;
+            justify-content: center;
+            align-items: center;
+        }
+        .mask-box {
+            position: absolute;
+            inset: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            z-index: 100;
+        }
+        .mask {
+            display: inline-flex;
+            box-sizing: border-box;
+            transform-origin: left top;
+            border: 4px dashed red;
+        }
+        .mask img {
+            opacity: 0;
+        }
+    </style>
 </head>
 <body>
-<div>
-
+<div class="wrapper">
+    <div style="transform-origin: left top;" id="transform-box">
+        <img src="img.png" alt="">
+    </div>
 </div>
-<script>
-    class Age {
-        getName() {
-            return this;
-        }
+<!--init img border-->
+<div class="mask-box">
+    <div class="mask">
+        <img src="img.png" alt="">
+    </div>
+</div>
+<script type="module">
+    import {CssMatrix} from './dist/index.js';
+
+    const box = document.getElementById('transform-box');
+    const matrix = new CssMatrix();
+    console.time();
+    for (let i = 0; i < 1e4; i++) {
+        matrix.rotate(90);
     }
+    console.timeEnd();
+    box.style.transform = matrix.toString();
 </script>
 </body>
 </html>
