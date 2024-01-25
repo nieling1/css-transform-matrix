@@ -5,7 +5,8 @@
   "main": "index.js",
   "scripts": {
     "dev": "rollup -c config/rollup.config.js --bundleConfigAsCjs -w --environment NODE_ENV:dev",
-    "build": "rollup -c config/rollup.config.js --bundleConfigAsCjs --environment NODE_ENV:prod"
+    "build": "rollup -c config/rollup.config.js --bundleConfigAsCjs --environment NODE_ENV:prod",
+    "push": "git push"
   },
   "type": "module",
   "keywords": [
@@ -31,6 +32,7 @@
     "rollup-plugin-babel": "^4.4.0",
     "rollup-plugin-livereload": "^2.0.5",
     "rollup-plugin-serve": "^1.1.1",
+    "rollup-plugin-typescript2": "^0.36.0",
     "typescript": "^5.3.3"
   }
 }

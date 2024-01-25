@@ -5,6 +5,7 @@ import resolve from "@rollup/plugin-node-resolve";
 import serve from "rollup-plugin-serve";
 import livereload from "rollup-plugin-livereload";
 import terser from "@rollup/plugin-terser";
+import typescript from "rollup-plugin-typescript2";
 
 const isProd = process.env.NODE_ENV === 'prod';
 
@@ -20,17 +21,18 @@ const config ={
         sourcemap: true,
     },
     plugins: [
-        serve({
+        !isProd && serve({
             open: true,
             contentBase: './',
             host: 'localhost',
             port: 3000,
             historyApiFallback: true,
         }),
-        livereload(),
+        !isProd && livereload(),
         resolve({
             extensions: ['.js', '.jsx', '.ts', '.tsx'],
         }),
+        isProd && typescript(),
         babel({
             babelHelpers: 'bundled',
             extensions: ['.js', '.ts', '.jsx', '.tsx'],
