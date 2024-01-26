@@ -1,21 +1,21 @@
 <p align="center" style="font-size: 34px;font-weight: bold;">
-    css-transform-matrix
+    😊css-transform-matrix
 </p>
 
-This is a CSSMatrix class as defined by the [w3c CSS3 3d Transforms](http://www.w3.org/TR/2011/WD-css3-2d-transforms-20111215/#cssmatrix-interface) specification.
+#### This is a CssMatrix class as defined by the [w3c CSS3 3d Transforms](http://www.w3.org/TR/2011/WD-css3-2d-transforms-20111215/#cssmatrix-interface) specification.
 
 You can easily customize what you want with the matrix
 
 ![example.gif](example.gif)
 
-### Installation
+## 🎉 Installation
 	npm install css-transform-matrix
 
-### Usage
+## 📝 Usage
 
 It should be compatible with documentation defined at [w3.org](http://www.w3.org/TR/2011/WD-css3-2d-transforms-20111215/#cssmatrix-interface) and at [WebKitCSSMatrix](https://developer.apple.com/library/iad/documentation/AudioVideo/Reference/WebKitCSSMatrixClassReference/index.html) Safari documentation.
 
-### example
+### 🚀 example
 
 ```typescript
 import {CssMatrix} from "css-transform-matrix";
@@ -30,7 +30,7 @@ matrix.rotateAtPoint(30, 50, 50);
 element.style.transform = matrix.toString();
 ```
 
-### All Methods
+## 🔧 All Methods
 - move(x, y)
 - moveX(x)
 - moveY(y)
