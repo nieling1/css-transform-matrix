@@ -46,30 +46,30 @@ export class CssMatrix implements ICssMatrix {
         return this;
     };
     scaleX(scale: number, x: number = 0) {
-        this.matrix = this.getScaleMatrix(scale, 0, x, 0).multiply(this.matrix);
+        this.matrix = this.getScaleMatrix(scale, 1, x, 0).multiply(this.matrix);
         return this;
     }
     scaleY(scale: number, y: number = 0) {
-        this.matrix = this.getScaleMatrix(0, scale, 0, y).multiply(this.matrix);
+        this.matrix = this.getScaleMatrix(1, scale, 0, y).multiply(this.matrix);
         return this;
     }
-    scaleAtPoint(scale: number, x: number, y: number) {
+    scaleAtPoint(scale: number, x = 0, y = 0) {
         this.matrix = this.getScaleMatrix(scale, scale, x, y).multiply(this.matrix);
         return this;
     };
     rotate(degree: number) {
+        return this.rotateAtPoint(degree, 0, 0);
+    };
+    rotateAtPoint(degree: number, x = 0, y = 0) {
         const ratio = Math.PI / 180;
         const a = Math.cos(degree * ratio);
         const b = Math.sin(degree * ratio)
         const c = -1 * b;
         this.matrix = Matrix.array([
-            [a, c, 0],
-            [b, a, 0],
+            [a, c, -a * x - c * y + x],
+            [b, a, -b * x - a * y + y],
             [0, 0, 1]
         ]).multiply(this.matrix);
-        return this;
-    };
-    rotateAtPoint(degree: number, x: number, y: number) {
         return this;
     }
     toString() {
@@ -82,12 +82,7 @@ export class CssMatrix implements ICssMatrix {
         return `matrix(${res.join(',')})`;
     }
     
-    // 矩阵缩放
     private getScaleMatrix(sx: number, sy: number, x: number, y: number) {
-        sx = sx ?? 1;
-        sy = sy ?? 1;
-        x = x ?? 0;
-        y = y ?? 0;
         return Matrix.array([
             [sx, 0, -1 * sx * x + x],
             [0, sy, -1 * sy * y + y],

@@ -40,26 +40,53 @@
 <body>
 <div class="wrapper">
     <div style="transform-origin: left top;" id="transform-box">
-        <img src="img.png" alt="">
+        <img src="img.png" alt="" id="transform-img">
     </div>
 </div>
 <!--init img border-->
-<div class="mask-box">
+<div class="mask-box" style="pointer-events: none;">
     <div class="mask">
         <img src="img.png" alt="">
     </div>
 </div>
 <script type="module">
     import {CssMatrix} from './dist/index.js';
-
-    const box = document.getElementById('transform-box');
+    const boxEl = document.getElementById('transform-box');
+    const imgEl = document.getElementById('transform-img');
+    const maskEl = document.querySelector('.mask');
     const matrix = new CssMatrix();
-    console.time();
-    for (let i = 0; i < 1e4; i++) {
-        matrix.rotate(90);
+    const moveSensitivity = 1;
+    const scaleSensitivity = 0.05;
+
+    const onMouseMove = ev => {
+        const mx = ev.movementX * moveSensitivity;
+        const my = ev.movementY * moveSensitivity;
+        matrix.move(mx, my);
+        boxEl.style.transform = matrix.toString();
     }
-    console.timeEnd();
-    box.style.transform = matrix.toString();
+    const onMouseUp = () => {
+        document.removeEventListener('mousemove', onMouseMove, true);
+        document.removeEventListener('mouseup', onMouseUp, true);
+    }
+
+    boxEl.addEventListener('mousedown', () => {
+        document.addEventListener('mousemove', onMouseMove, true);
+        document.addEventListener('mouseup', onMouseUp, true);
+    });
+    boxEl.addEventListener('wheel', ev => {
+        const delta = ev.deltaY > 0 ? 1 : -1;
+        const scale = 1 - delta * scaleSensitivity;
+        const rect = maskEl.getBoundingClientRect();
+        const x = ev.clientX - rect.left;
+        const y = ev.clientY - rect.top;
+        console.log(x, y);
+        matrix.scaleAtPoint(scale, x, y);
+        boxEl.style.transform = matrix.toString();
+    })
+    imgEl.addEventListener("mousedown", ev => {
+        ev.preventDefault();
+    })
+
 </script>
 </body>
 </html>
