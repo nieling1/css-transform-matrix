@@ -7,7 +7,8 @@
   "types": "./dist/index.d.ts",
   "files": [
     "dist",
-    "src"
+    "src",
+    "example.gif"
   ],
   "scripts": {
     "dev": "rollup -c config/rollup.config.js --bundleConfigAsCjs -w --environment NODE_ENV:dev",
@@ -24,7 +25,14 @@
     "scale",
     "skew"
   ],
-  "author": "qinyunguo",
+  "author": "Yunguo Qin",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/nieling1/css-transform-matrix.git"
+  },
+  "bugs": {
+    "url": "https://github.com/nieling1/css-transform-matrix/issues"
+  },
   "license": "MIT",
   "devDependencies": {
     "@babel/core": "^7.23.7",
