@@ -1,8 +1,14 @@
 {
   "name": "css-transform-matrix",
   "version": "0.0.1",
-  "description": "css matrix helper",
-  "main": "index.js",
+  "description": "You can easily customize what you want with the CssMatrix",
+  "main": "./dist/index.js",
+  "module": "./dist/index.js",
+  "types": "./dist/index.d.ts",
+  "files": [
+    "dist",
+    "src"
+  ],
   "scripts": {
     "dev": "rollup -c config/rollup.config.js --bundleConfigAsCjs -w --environment NODE_ENV:dev",
     "build": "rollup -c config/rollup.config.js --bundleConfigAsCjs --environment NODE_ENV:prod",
@@ -15,10 +21,11 @@
     "transform",
     "translate",
     "rotate",
-    "scale"
+    "scale",
+    "skew"
   ],
   "author": "qinyunguo",
-  "license": "ISC",
+  "license": "MIT",
   "devDependencies": {
     "@babel/core": "^7.23.7",
     "@babel/preset-env": "^7.23.8",
