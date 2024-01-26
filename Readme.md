@@ -1,8 +1,6 @@
-<p align="center" style="font-size: 34px;font-weight: bold;">
-    😊css-transform-matrix
-</p>
+# 😊css-transform-matrix
 
-#### This is a CssMatrix class as defined by the [w3c CSS3 3d Transforms](http://www.w3.org/TR/2011/WD-css3-2d-transforms-20111215/#cssmatrix-interface) specification.
+> This is a CssMatrix class as defined by the [w3c CSS3 3d Transforms](http://www.w3.org/TR/2011/WD-css3-2d-transforms-20111215/#cssmatrix-interface) specification.
 
 You can easily customize what you want with the matrix
 
@@ -15,7 +13,7 @@ You can easily customize what you want with the matrix
 
 It should be compatible with documentation defined at [w3.org](http://www.w3.org/TR/2011/WD-css3-2d-transforms-20111215/#cssmatrix-interface) and at [WebKitCSSMatrix](https://developer.apple.com/library/iad/documentation/AudioVideo/Reference/WebKitCSSMatrixClassReference/index.html) Safari documentation.
 
-### 🚀 example
+## 🚀 Example
 
 ```typescript
 import {CssMatrix} from "css-transform-matrix";
